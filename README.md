@@ -1,4 +1,4 @@
-# Crypto Price Compare
+# Crypto Price Compare GraphQL Server
 
 Fun learning experiment to get acquainted with GraphQL and Apollo Server. This project will build an [Apollo Server](https://www.apollographql.com/docs/apollo-server/#:~:text=Apollo%20Server%20is%20an%20open,use%20data%20from%20any%20source.) that can query the following cryptocurrency APIs:
 
