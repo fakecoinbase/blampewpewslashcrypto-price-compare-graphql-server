@@ -1,12 +1,14 @@
 module.exports = {
   Query: {
-    coinsMarketCapListing: (_, __, { dataSources }) =>
+    coinsmarketcapListing: (_, __, { dataSources }) =>
       dataSources.coinMarketCapAPI.getLatestListings(),
-    cryptoCompareListing: (_, __, { dataSources }) =>
+    cryptocompareListing: (_, __, { dataSources }) =>
       dataSources.cryptoCompareAPI.getLatestListings(),
-    coinmarketcap: (_, { symbol }, { dataSources}) =>
+    coinmarketcapPrice: (_, { symbol }, { dataSources}) =>
       dataSources.coinMarketCapAPI.getCoinPriceBySymbol({ symbol: symbol }),
-    cryptocompare: (_, { symbol }, { dataSources}) =>
+    cryptocomparePrice: (_, { symbol }, { dataSources}) =>
       dataSources.cryptoCompareAPI.getCoinPriceBySymbol({ symbol: symbol }),
+    coinbasePrice: (_, { symbol }, { dataSources }) =>
+      dataSources.coinBaseAPI.getCoinPriceBySymbol({ symbol: symbol })
   }
 };

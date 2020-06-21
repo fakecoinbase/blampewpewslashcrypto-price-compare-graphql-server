@@ -7,7 +7,7 @@ class CryptoCompareAPI extends RESTDataSource {
   }
 
   willSendRequest(request) {
-    request.headers.set('Authorization', 'Apikey ' + this.context.crypto_compare_api_key);
+    request.headers.set('Authorization', 'Apikey ' + process.env.CRYPTO_COMPARE_API_KEY);
   }
 
   async getLatestListings() {
