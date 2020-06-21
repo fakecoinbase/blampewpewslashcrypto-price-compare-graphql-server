@@ -4,6 +4,7 @@ Fun learning experiment to get acquainted with GraphQL and Apollo Server. This p
 
  - CoinmarketCap
  - CryptoCompare
+ - Coinbase
 
 The main learning goal was to understand the benefits of GraphQL and see the capability of querying multiple data sources (two REST APIs in this experiment) using one query.
 
@@ -24,20 +25,24 @@ npm start
 
 # GraphQL Queries
 
- - `coinMarketcapListing`: Will return the latest listings from coinmarketcap.
- - `cryptoCompareListing`: Will return the latest listings from cryptocompare.
- - `coinmarketcap(Symbol)`: Will return the price for a cryptocurrency in USD from coinmarketcap.
- - `cryptocompare(Symbol)`: Will return the price for a cryptocurrency in USD from cryptocompare.
+ - `coinmarketcapListing`: Will return the latest listings from coinmarketcap.
+ - `cryptocompareListing`: Will return the latest listings from cryptocompare.
+ - `coinmarketcapPrice(Symbol)`: Will return the price for a cryptocurrency in USD from coinmarketcap.
+ - `cryptocomparePrice(Symbol)`: Will return the price for a cryptocurrency in USD from cryptocompare.
+ - `coinbasePrice(Symbol)`: Will return price for a cryptocurrency in USD from coinbase.
 
 ## Example Queries
 
 GraphQL Query:
 ```
 query getCoinPriceBySymbol {
-  coinmarketcap(symbol: "ETH") {
+  coinmarketcapPrice(symbol: "ETH") {
     value
   }
-  cryptocompare(symbol: "ETH") {
+  cryptocomparePrice(symbol: "ETH") {
+    value
+  }
+  coinbasePrice(symbol: "ETH") {
     value
   }
 }
@@ -47,11 +52,14 @@ Response:
 ```
 {
   "data": {
-    "coinmarketcap": {
+    "coinmarketcapPrice": {
       "value": 168.688633539
     },
-    "cryptocompare": {
-      "value": 229.2
+    "cryptocomparePrice": {
+      "value": 229.9
+    },
+    "coinbasePrice": {
+      "value": 231.03
     }
   }
 }
