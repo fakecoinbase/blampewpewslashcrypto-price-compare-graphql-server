@@ -12,7 +12,7 @@ class CryptoCompareAPI extends RESTDataSource {
 
   async getLatestListings() {
     const response = await this.get('top/totalvolfull?limit=10&tsym=USD');
-    console.log(response);
+
     return Array.isArray(response.Data)
       ? response.Data.map((coin, index) => this.coinReducer(coin, index))
       : [];
@@ -20,7 +20,7 @@ class CryptoCompareAPI extends RESTDataSource {
 
   async getCoinPriceBySymbol({ symbol }) {
     const response = await this.get('price', { fsym: symbol , tsyms: 'USD'});
-    console.log(response);
+
     return this.priceReducer(response);
   }
 
@@ -38,7 +38,10 @@ class CryptoCompareAPI extends RESTDataSource {
       name: coin.CoinInfo.FullName,
       symbol: coin.CoinInfo.Name,
       rank: index + 1,
-      price: coin.RAW.USD.PRICE
+      price: {
+        currency: 'USD',
+        value: coin.RAW.USD.PRICE
+      }
     }
   }
 }

@@ -3,7 +3,8 @@ const { gql } = require('apollo-server');
 const typeDefs = gql`
   # Your schema will go here
   type Query {
-    coins: [Coin]
+    coinsMarketCapListing: [Coin]
+    cryptoCompareListing: [Coin]
     coinmarketcap(symbol: String!): Price
     cryptocompare(symbol: String!): Price
   }
