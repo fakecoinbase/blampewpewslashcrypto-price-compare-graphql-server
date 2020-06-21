@@ -10,7 +10,8 @@ const CryptoCompareAPI = require('./datasources/cryptocompare');
 
 const server = new ApolloServer({
   context: {
-    api_key: process.env.API_KEY,
+    coinMarketCapUrl: process.env.COIN_MARKET_CAP_API_URL,
+    coinMarketCapApiKey: process.env.COIN_MARKET_CAP_API_KEY,
     crypto_compare_api_key: process.env.CRYPTO_COMPARE_API_KEY
   },
   typeDefs,

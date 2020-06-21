@@ -8,11 +8,12 @@ Fun learning experiment to get acquainted with GraphQL and Apollo Server. This p
 The main learning goal was to understand the benefits of GraphQL and see the capability of querying multiple data sources (two REST APIs in this experiment) using one query.
 
 # Installation & Set Up
-Create a `.env` folder at the root of the project containing the API keys needed to perform the requests. 
+Create a `.env` folder at the root of the project containing the API keys needed to perform the requests.
 
 Example:
 ```
-API_KEY=PUT_KEY_HERE
+COIN_MARKET_CAP_API_URL=https://sandbox-api.coinmarketcap.com/v1/
+COIN_MARKET_CAP_API_KEY=PUT_KEY_HERE
 CRYPTO_COMPARE_API_KEY=PUT_KEY_HERE
 ```
 Then run:
@@ -23,7 +24,7 @@ npm start
 
 # GraphQL Queries
 
- - `coinMarketcapListing`: Will return the latest listings from coinmarketcap. 
+ - `coinMarketcapListing`: Will return the latest listings from coinmarketcap.
  - `cryptoCompareListing`: Will return the latest listings from cryptocompare.
  - `coinmarketcap(Symbol)`: Will return the price for a cryptocurrency in USD from coinmarketcap.
  - `cryptocompare(Symbol)`: Will return the price for a cryptocurrency in USD from cryptocompare.

@@ -3,11 +3,11 @@ const { RESTDataSource } = require('apollo-datasource-rest');
 class CoinMarketCapAPI extends RESTDataSource {
   constructor() {
     super();
-    this.baseURL = 'https://sandbox-api.coinmarketcap.com/v1/';
+    this.baseURL = this.context.coinMarketCapUrl;
   }
 
   willSendRequest(request) {
-    request.headers.set('X-CMC_PRO_API_KEY', this.context.api_key);
+    request.headers.set('X-CMC_PRO_API_KEY', this.context.coinMarketCapApiKey);
     request.headers.set('Accept', 'application/json');
   }
 
